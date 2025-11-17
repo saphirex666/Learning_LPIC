@@ -1,6 +1,10 @@
 # Mehr Innforamtionen dazu
 
+
+https://www.lpi.org/our-certifications/exam-305-objectives/#Objectives
+
 https://www.linuxhotel.de/course/lpi305-de/
+
 Prüfungsvorbereitung für die Linux Zertifizierung LPIC 305
 
 Der Workshop konzentriert sich auf die vom LPI für die Prüfung 305 geforderten Techniken und Lösungen. In unseren Schulungen zu KVM, XEN und Docker bieten wir jeweils eine Einführung in das jeweilige Thema auf dem aktuellen Stand der Technik.
