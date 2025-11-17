@@ -15,6 +15,7 @@ LPI 306 - Hochverfügbarkeit
 Topic 351: Voll Virtualisierung
 
 351.1 Konzepte und Theorie hinter Virtualisierung (weight: 6)
+
 351.2 Xen (weight: 3)
 351.3 QEMU (weight: 4)
 351.4 Libvirt Virtual Machine Management (weight: 9)
