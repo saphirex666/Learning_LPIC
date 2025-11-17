@@ -1,4 +1,4 @@
-# Mehr Innforamtionen dazu
+# Mehr Informationen dazu
 
 
 https://www.lpi.org/our-certifications/exam-305-objectives/#Objectives
