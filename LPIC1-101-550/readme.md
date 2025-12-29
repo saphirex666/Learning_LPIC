@@ -1,5 +1,5 @@
 # Quelle zu mehr
- https://learning.lpi.org/de/learning-materials/101-500/
+ https://learning.lpi.org/de/learning-materials/101-500/  
  https://wiki.lpi.org/wiki/LPIC-1_Objectives_V5.0
 
  # Thema 101: Systemarchitektur
