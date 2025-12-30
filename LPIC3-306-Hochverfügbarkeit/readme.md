@@ -5,23 +5,27 @@ https://www.linuxhotel.de/kurs/lpi300
 
 # Inhalt
 
-opic 361: Verwaltung von Hochverfügbarkeitsclustern
+🧠 Prüfung LPIC-306 (High Availability)
+# Thema 361: Verwaltung von Hochverfügbarkeits-Clustern
 
-361.1 Konzepte und Theorie hinter Hochverfügbarkeit (weight: 6)
-361.2 Load Balancer (weight: 8)
-361.3 Failover Cluster (weight: 8)
-Topic 362: Hochverfügbare Speicher
+  - 361.1 Konzepte und Theorie der Hochverfügbarkeit (Gewichtung: 6)
+  - 361.2 Load-Balanced-Cluster (Gewichtung: 8)
+  - 361.3 Failover-Cluster (Gewichtung: 8)
+ 
+# Thema 362: Hochverfügbarer Cluster-Speicher
 
-362.1 DRBD (weight: 6)
-362.2 Zugriff auf Cluster Storage (weight: 3)
-362.3 Cluster Dateisysteme (weight: 4)
-Topic 363: hochverfügbare, verteilte Speichergeräte
+  - 362.1 DRBD (Gewichtung: 6)
+  - 362.2 Zugriff auf Cluster-Speicher (Gewichtung: 3)
+  - 362.3 Cluster-Dateisysteme (Gewichtung: 4)
+ 
+# Thema 363: Hochverfügbarer verteilter Speicher
 
-363.1 GlusterFS Storage Clusters (weight: 5)
-363.2 Ceph Storage Clusters (weight: 8)
-Topic 364: Hochverfügbarkeit auf einzelnen Nodes
+  - 363.1 GlusterFS-Speichercluster (Gewichtung: 5)
+  - 363.2 Ceph-Speichercluster (Gewichtung: 8)
+ 
+# Thema 364: Hochverfügbarkeit auf Einzelknoten
 
-364.1 Hochverfügbarkeit von Hardware und Resourcen (weight: 2)
-364.2 RAID für Fortgeschrittene (weight: 2)
-364.3 LVM für Fortgeschrittene (weight: 3)
-364.4 Hochverfügbares Netzwerk (weight: 5)
+  - 364.1 Hardware- und Ressourcen-Hochverfügbarkeit (Gewichtung: 2)
+  - 364.2 Erweitertes RAID (Gewichtung: 2)
+  - 364.3 Erweitertes LVM (Gewichtung: 3)
+  - 364.4 Netzwerk-Hochverfügbarkeit (Gewichtung: 5)
