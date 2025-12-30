@@ -1,7 +1,7 @@
 # Links
 
 https://www.lpi.org/our-certifications/exam-300-objectives/#Objectives  
-https://wiki.lpi.org/wiki/LPIC-300_Objectives_V3.0
+https://wiki.lpi.org/wiki/LPIC-300_Objectives_V3.0  
 https://www.linuxhotel.de/course/lpi300-de/
 
 # Inhalte
