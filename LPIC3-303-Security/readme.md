@@ -5,27 +5,32 @@ https://www.linuxhotel.de/course/lpi303-de/
 
 # Inhalt
 
-## Topic 331: Cryptography
-Certificates and Public Key Infrastructures (weight: 5)
-Certificates for Encryption, Signing and Authentication (weight: 4)
-Encrypted File Systems (weight: 3)
-DNS and Cryptography (weight: 5)
+# Thema 331: Kryptografie
 
-## Topic 332: Host Security
-Host Hardening (weight: 5)
-Host Intrusion Detection (weight: 5)
-Resource Control (weight: 3)
+  - 331.1 X.509-Zertifikate und Public-Key-Infrastrukturen (PKI) (Gewichtung: 5)
+  - 331.2 X.509-Zertifikate für Verschlüsselung, Signatur und Authentifizierung (Gewichtung: 4)
+  - 331.3 Verschlüsselte Dateisysteme (Gewichtung: 3)
+  - 331.4 DNS und Kryptografie (Gewichtung: 5)
+ 
+# Thema 332: Host-Sicherheit
 
-## Topic 333: Access Control
-Discretionary Access Control (weight: 3)
-Mandatory Access Control (weight: 5)
+  - 332.1 Host-Härtung (Gewichtung: 5)
+  - 332.2 Erkennung von Host-Intrusionen (Gewichtung: 5)
+  - 332.3 Ressourcen-Kontrolle (Gewichtung: 3)
+ 
+# Thema 333: Zugriffskontrolle
 
-## Topic 334: Network Security
-Network Hardening (weight: 4)
-Network Intrusion Detection (weight: 4)
-Packet Filtering (weight: 5)
-Virtual Private Networks (weight: 5)
+  - 333.1 Discretionary Access Control (DAC) (Gewichtung: 3)
+  - 333.2 Mandatory Access Control (MAC) (Gewichtung: 5)
+ 
+# Thema 334: Netzwerksicherheit
 
-## Topic 335: Threats and Vulnerability Assessment
-Common Security Vulnerabilities and Threats (weight: 2)
-Penetration Testing (weight: 3)
+  - 334.1 Netzwerk-Härtung (Gewichtung: 4)
+  - 334.2 Netzwerk-Intrusion-Detection (Gewichtung: 4)
+  - 334.3 Paketfilterung (Gewichtung: 5)
+  - 334.4 Virtuelle Private Netzwerke (VPN) (Gewichtung: 4)
+ 
+# Thema 335: Bedrohungen und Schwachstellenanalyse
+
+  - 335.1 Häufige Sicherheitslücken und Bedrohungen (Gewichtung: 2)
+  - 335.2 Penetrationstests (Gewichtung: 3)
