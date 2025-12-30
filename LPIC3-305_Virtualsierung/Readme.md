@@ -2,17 +2,8 @@
 
 
 https://www.lpi.org/our-certifications/exam-305-objectives/#Objectives
-
+https://wiki.lpi.org/wiki/LPIC-305_Objectives_V3.0
 https://www.linuxhotel.de/course/lpi305-de/
-
-Prüfungsvorbereitung für die Linux Zertifizierung LPIC 305
-
-Der Workshop konzentriert sich auf die vom LPI für die Prüfung 305 geforderten Techniken und Lösungen. In unseren Schulungen zu KVM, XEN und Docker bieten wir jeweils eine Einführung in das jeweilige Thema auf dem aktuellen Stand der Technik.
-Die Prüfung LPIC 305 ist eine von mehreren Möglichkeiten LPI Level 3 zu erreichen - eine reicht. Alternativ bieten wir folgende weiteren Prüfungsvorbereitungen zu LPI Level 3 an:
-LPI 300 - LDAP & Samba
-LPI 303 - Sicherheit
-LPI 305 - Virtualisierung
-LPI 306 - Hochverfügbarkeit
 
 ## Inhalt
 
