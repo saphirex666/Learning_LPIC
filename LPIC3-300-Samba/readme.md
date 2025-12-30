@@ -5,8 +5,6 @@ https://www.linuxhotel.de/course/lpi300-de/
 
 # Inhalte
 
-# Topic 301: Samba Basics
-
 # Thema 301: Samba-Grundlagen
 
   - 301.1 Samba-Konzepte und Architektur (Gewichtung: 2)
