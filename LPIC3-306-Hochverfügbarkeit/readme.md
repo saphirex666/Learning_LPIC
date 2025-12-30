@@ -1,7 +1,7 @@
 # Mehr Informationen dazu
 
-https://www.linuxhotel.de/kurs/lpi300
-
+https://www.linuxhotel.de/kurs/lpi300  
+https://wiki.lpi.org/wiki/LPIC-306_Objectives_V3.0
 
 # Inhalt
 
