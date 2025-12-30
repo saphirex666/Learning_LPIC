@@ -1,6 +1,7 @@
 # Link zu mehr Informationen
 
-https://www.lpi.org/our-certifications/exam-303-objectives/#331.1_X.509_Certificates_and_Public_Key_Infrastructures_(weight:_5)
+https://www.lpi.org/our-certifications/exam-303-objectives/#331.1_X.509_Certificates_and_Public_Key_Infrastructures_(weight:_5)  
+https://wiki.lpi.org/wiki/LPIC-303_Objectives_V3.0  
 https://www.linuxhotel.de/course/lpi303-de/
 
 # Inhalt
