@@ -1,3 +1,5 @@
+https://wiki.lpi.org/wiki/LPIC-2_Objectives_V4.5
+
 
 # Thema 200: Kapazitätsplanung
 
