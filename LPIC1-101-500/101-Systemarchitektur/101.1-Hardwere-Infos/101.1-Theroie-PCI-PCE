@@ -1,0 +1,170 @@
+# PCI / PCIe – Gesamtsammenfassung (Themenkomplex)
+
+Der PCI-Themenkomplex beschreibt, **wie Hardwaregeräte im System angebunden, adressiert, erkannt und verwaltet werden**. Er verbindet **Hardware, Firmware (BIOS/UEFI) und Betriebssystem** zu einer konsistenten Struktur.
+
+---
+
+## 1. Grundidee von PCI
+
+**PCI (Peripheral Component Interconnect)** ist ein Standard zur Anbindung von Erweiterungsgeräten wie:
+
+- Grafikkarten
+- Netzwerkkarten
+- Storage-Controllern
+- USB-Controllern
+
+**Ziel:**  
+Einheitliche Erkennung, Adressierung und Verwaltung von Hardware.
+
+---
+
+## 2. Historische Entwicklung
+
+| Phase          | Technologie   | Kernaussage                          |
+|----------------|---------------|--------------------------------------|
+| 1990er         | PCI           | Gemeinsamer Parallelbus              |
+| 2000           | PCI + Bridges | Erste Hierarchien                    |
+| 2000–2004      | PCI-X         | Schnell, aber physisch limitiert     |
+| ab 2004        | PCI Express   | Punkt-zu-Punkt statt Bus             |
+| heute          | PCIe + Switches | Baum-/Netzwerk-Topologie           |
+
+**Kernauslöser der Entwicklung:**
+
+- Skalierbarkeit
+- Performance
+- Signalqualität
+- Virtualisierung
+- Sicherheit
+
+---
+
+## 3. Moderne PCIe-Topologie
+
+PCIe ist **kein Bus mehr**, sondern ein **hierarchisches Netzwerk**.
+
+**Struktur (Beispiel):**
+CPU
+└─ Root Complex
+├─ PCIe Bridge / Switch
+│  ├─ Device
+│  └─ Device
+└─ Direkt angebundenes Device
+
+### Zentrale Komponenten
+
+- **Root Complex**: Übergang CPU ↔ PCIe-Domain
+- **Bus**: Logischer Adressraum (Nummer von 0–255)
+- **Device**: Physisches oder integriertes Gerät (bis 32 pro Bus)
+- **Function**: Teilfunktion eines Multifunktionsgeräts (0–7)
+
+---
+
+## 4. PCI-Adressierung
+
+**Format:**
+[Domain:]Bus:Device.Function
+
+
+**Beispiel:**
+0000:03:00.1
+
+
+| Feld     | Bedeutung                          |
+|----------|------------------------------------|
+| Domain   | PCI-Adressraum / Root Complex (meist 0000 bei Desktops) |
+| Bus      | Zugeordneter PCI-Bus               |
+| Device   | Slot oder Gerät (0–31)             |
+| Function | Teilfunktion (0–7)                 |
+
+**Wer vergibt die Adresse?**
+
+- **Hardware**: Unterstützt die grundlegende Adressierung
+- **BIOS/UEFI**: Erstellt die Topologie und vergibt Busnummern beim Boot
+- **Linux**: Liest die Daten nur aus (kann nicht selbst vergeben)
+
+👉 **Wichtig:** Die PCI-Adresse ist **nicht dauerhaft stabil** – sie kann sich bei Hardwareänderungen oder Bootreihenfolge ändern.
+
+---
+
+## 5. Anzeige unter Linux (`lspci`)
+
+- `lspci` zeigt die komplette **PCI-Topologie**, nicht nur Geräte
+- `lspci -t` → Baumdarstellung der Hierarchie
+- `lspci -s <Adresse> -v` → Detaillierte Informationen (Capabilities, Treiber etc.)
+- Kernel liest Infos aus:
+  - Firmware (ACPI/MCFG-Tabellen)
+  - PCI-Konfigurationsraum jedes Geräts
+  - `/sys/devices/pci*`
+
+---
+
+## 6. Domains & Server-Topologien
+
+### Warum Domains existieren
+
+- Mehrere CPUs/NUMA-Nodes
+- Mehrere Root Complexes
+- Virtualisierungs- und Isolationsanforderungen
+
+👉 Jede Domain = eigener, unabhängiger PCI-Adressraum
+
+**Relevanz:**
+
+- Performance-Optimierung
+- PCI-Passthrough in VMs
+- Direkte Speicherzugriffe (DMA)
+
+---
+
+## 7. IOMMU & VFIO (Virtualisierung)
+
+### IOMMU (Input–Output Memory Management Unit)
+
+- Kontrolliert und übersetzt DMA-Zugriffe von Geräten
+- Isoliert Speicherbereiche zwischen Geräten und VMs
+- Grundlage für Sicherheit und Virtualisierung
+
+### IOMMU-Gruppen
+
+- Geräte, die denselben IOMMU-Schutz haben, werden gruppiert
+- Für sicheres Passthrough muss eine gesamte Gruppe isoliert werden
+
+### VFIO (Virtual Function I/O)
+
+- Ermöglicht direktes Durchreichen (Passthrough) von PCI-Geräten an virtuelle Maschinen
+- Liefert nahezu native Hardware-Performance
+- Erfordert saubere IOMMU-Gruppen und passende Treiber-Unterstützung
+
+---
+
+## 8. Praxisrelevanz
+
+PCI-Wissen ist entscheidend für:
+
+- Hardware-Troubleshooting und Fehlersuche
+- Server-Design und NUMA-Optimierung
+- Virtualisierung (Proxmox, KVM, ESXi)
+- GPU- und NIC-Passthrough
+- Sicherheitsanalysen (DMA-Angriffe)
+- LPIC- und andere Zertifizierungsprüfungen
+
+---
+
+## 9. Zentrale Merksätze
+
+- PCI begann als Bus und endete als hochperformantes Netzwerk.
+- Die PCI-Adresse beschreibt die **Position im System**, nicht das Gerät selbst.
+- BIOS/UEFI erzeugt die Topologie – das Betriebssystem interpretiert sie nur.
+- Für sicheres PCI-Passthrough zählt nicht das einzelne Gerät, sondern seine **IOMMU-Gruppe**.
+
+---
+
+## 10. Kurzfazit
+
+- PCIe ist heute ein **hierarchisches Hochleistungs-I/O-Netzwerk**
+- Adressierung und Topologie sind **architektonisch zentral** für moderne Systeme
+- Ohne solides PCI-Verständnis sind Server-Administration, Virtualisierung und tiefgehendes Debugging nicht vollständig beherrschbar
+
+---
+
+*Diese Zusammenfassung deckt Theorie, Praxis und Prüfungswissen vollständig ab. Ideal als Spickzettel, Abschlusskapitel oder GitHub-README.*
