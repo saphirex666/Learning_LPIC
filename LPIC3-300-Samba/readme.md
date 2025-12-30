@@ -7,31 +7,37 @@ https://www.linuxhotel.de/course/lpi300-de/
 
 # Topic 301: Samba Basics
 
-Samba Concepts and Architecture (weight: 2)
-Configure Samba (weight: 4)
-Regular Samba Maintenance (weight: 2)
-Troubleshooting Samba (weight: 3)
-Topic 302: Samba and Active Directory Domains
+# Thema 301: Samba-Grundlagen
 
-Samba as Active Directory Domain Controller (weight: 5)
-Active Directory Name Resolution (weight: 2)
-Active Directory User Management (weight: 4)
-Samba Domain Membership (weight: 4)
-Samba Local User Management (weight: 2)
-Topic 303: Samba Share Configuration
+  - 301.1 Samba-Konzepte und Architektur (Gewichtung: 2)
+  - 301.2 Samba-Konfiguration (Gewichtung: 4)
+  - 301.3 Regelmäßige Samba-Wartung (Gewichtung: 2)
+  - 301.4 Fehleranalyse und -behebung in Samba (Gewichtung: 3)
+ 
+# Thema 302: Samba und Active-Directory-Domänen
 
-File Share Configuration (weight: 4)
-File Share Security (weight: 3)
-DFS Share Configuration (weight: 1)
-Print Share Configuration (weight: 2)
-Topic 304: Samba Client Configuration
+  - 302.1 Samba als Active-Directory-Domänencontroller (Gewichtung: 5)
+  - 302.2 Active-Directory-Namensauflösung (Gewichtung: 2)
+  - 302.3 Active-Directory-Benutzerverwaltung (Gewichtung: 4)
+  - 302.4 Samba-Domänenmitgliedschaft (Gewichtung: 4)
+  - 302.5 Lokale Benutzerverwaltung mit Samba (Gewichtung: 2)
+ 
+# Thema 303: Samba-Freigaben konfigurieren
 
-Linux Authentication Clients (weight: 5)
-Linux CIFS Clients (weight: 3)
-Windows Clients (weight: 3)
-Topic 305: Linux Identity Management and File Sharing
+  - 303.1 Dateifreigaben konfigurieren (Gewichtung: 4)
+  - 303.2 Sicherheit von Dateifreigaben (Gewichtung: 3)
+  - 303.3 DFS-Freigaben konfigurieren (Gewichtung: 1)
+  - 303.4 Druckerfreigaben konfigurieren (Gewichtung: 2)
+ 
+# Thema 304: Samba-Client-Konfiguration
 
-FreeIPA Installation and Maintenance (weight: 2)
-FreeIPA Entity Management (weight: 4)
-FreeIPA Active Directory Integration (weight: 2)
-Network File System (weight: 3)
+  - 304.1 Linux-Authentifizierungs-Clients (Gewichtung: 5)
+  - 304.2 Linux-CIFS-Clients (Gewichtung: 3)
+  - 304.3 Windows-Clients (Gewichtung: 3)
+ 
+# Thema 305: Linux-Identitätsmanagement und Dateifreigaben
+
+  - 305.1 FreeIPA installieren und warten (Gewichtung: 2)
+  - 305.2 FreeIPA-Objekt-/Identitätsverwaltung (Gewichtung: 4)
+  - 305.3 FreeIPA-Integration mit Active Directory (Gewichtung: 2)
+  - 305.4 Network File System (NFS) (Gewichtung: 3)
