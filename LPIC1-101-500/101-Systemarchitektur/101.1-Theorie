@@ -6,15 +6,15 @@ Diese Datei beschreibt die technische Entwicklung der Firmware-Konfiguration von
 
 ## 1. Chronologische Entwicklung
 
-| Zeitraum / Epoche | Bezeichnung | Wichtige Entwicklungen | Konkrete Veränderungen |
-|------------------|-------------|------------------------|------------------------|
-| **1980er – Mitte 2000er** | BIOS (Basic Input/Output System) | Ursprüngliche PC-Firmware | • Textbasiertes Setup<br>• 16-Bit-Real-Mode<br>• Sehr limitierter Speicher<br>• MBR-Boot (max. 2 TB, 4 Partitionen) |
-| **ca. 2003–2006** | BIOS (späte Phase) | Erweiterungen innerhalb alter Grenzen | • ACPI-Support<br>• Grundlegende Hardwarediagnosen<br>• Weiterhin architektonisch limitiert |
-| **2006–2010** | UEFI (Einführung) | Neuer Firmware-Ansatz | • 32-/64-Bit-Ausführung<br>• Modulare Treiberarchitektur<br>• GPT-Unterstützung<br>• Bessere Hardwareinitialisierung |
-| **2010–2012** | UEFI + Legacy Mode | Übergangsphase | • BIOS-Kompatibilitätsmodus<br>• Erste grafische Oberflächen<br>• Mausbedienung |
-| **2012–2016** | UEFI (Mainstream) | Etablierung als Standard | • Secure Boot<br>• Schnellere Bootzeiten<br>• Netzwerkfunktionen im Firmware-Level |
-| **2016–2020** | Modernes UEFI | Sicherheitsfokus | • TPM-Integration<br>• NVMe-Boot<br>• UEFI-Shell & Scripting |
-| **2020–heute** | Reifes UEFI | Voraussetzung für moderne Systeme | • Pflicht für aktuelle Betriebssysteme<br>• Secure Boot + TPM Standard<br>• Firmware-Updates ohne OS |
+| Zeitraum / Epoche       | Bezeichnung              | Wichtige Entwicklungen                  | Konkrete Veränderungen                                                                 |
+|-------------------------|--------------------------|-----------------------------------------|---------------------------------------------------------------------------------------|
+| **1980er – Mitte 2000er** | BIOS (Basic Input/Output System) | Ursprüngliche PC-Firmware              | • Textbasiertes Setup<br>• 16-Bit-Real-Mode<br>• Sehr limitierter Speicher<br>• MBR-Boot (max. 2 TB, 4 Partitionen) |
+| **ca. 2003–2006**       | BIOS (späte Phase)       | Erweiterungen innerhalb alter Grenzen   | • ACPI-Support<br>• Grundlegende Hardwarediagnosen<br>• Weiterhin architektonisch limitiert |
+| **2006–2010**           | UEFI (Einführung)        | Neuer Firmware-Ansatz                   | • 32-/64-Bit-Ausführung<br>• Modulare Treiberarchitektur<br>• GPT-Unterstützung<br>• Bessere Hardwareinitialisierung |
+| **2010–2012**           | UEFI + Legacy Mode       | Übergangsphase                          | • BIOS-Kompatibilitätsmodus<br>• Erste grafische Oberflächen<br>• Mausbedienung       |
+| **2012–2016**           | UEFI (Mainstream)        | Etablierung als Standard                | • Secure Boot<br>• Schnellere Bootzeiten<br>• Netzwerkfunktionen im Firmware-Level    |
+| **2016–2020**           | Modernes UEFI            | Sicherheitsfokus                        | • TPM-Integration<br>• NVMe-Boot<br>• UEFI-Shell & Scripting                          |
+| **2020–heute**          | Reifes UEFI              | Voraussetzung für moderne Systeme       | • Pflicht für aktuelle Betriebssysteme<br>• Secure Boot + TPM Standard<br>• Firmware-Updates ohne OS |
 
 ---
 
@@ -23,18 +23,21 @@ Diese Datei beschreibt die technische Entwicklung der Firmware-Konfiguration von
 ### 2.1 Warum BIOS an seine Grenzen kam
 
 Das klassische BIOS stammt aus einer Zeit, in der:
+
 - Festplatten wenige **Megabyte** groß waren
 - Systeme **keine Netzwerkanbindung** im Boot-Prozess benötigten
 - Sicherheit **kaum eine Rolle** spielte
 - Betriebssysteme **monolithisch** und hardware-nah arbeiteten
 
-Technische Limitierungen:
+**Technische Limitierungen:**
+
 - 16-Bit-Code (Real Mode)
 - Maximal ~1 MB adressierbarer Speicher
 - Kein natives Treibermodell
 - Feste, kaum erweiterbare Struktur
 
 Diese Grenzen verhinderten:
+
 - Boot von großen Datenträgern
 - Schnelle Initialisierung moderner Hardware
 - Sicherheitsmechanismen gegen Boot-Manipulation
@@ -46,12 +49,14 @@ Diese Grenzen verhinderten:
 UEFI ist **keine Weiterentwicklung des BIOS**, sondern ein **komplett neues Firmware-Konzept**.
 
 **Architektonische Änderungen:**
+
 - Läuft in **32- oder 64-Bit-Umgebung**
 - Nutzt eigenen Speicher und eigene Treiber
 - Modul- & servicebasiert statt monolithisch
 - Klar definierte Schnittstelle zum Betriebssystem
 
 **Technische Vorteile:**
+
 - GPT statt MBR → praktisch unbegrenzte Datenträgergröße
 - Treiber bereits **vor dem OS-Start**
 - Netzwerk-Stack im Firmware-Level
@@ -67,7 +72,8 @@ Ein zentraler Wendepunkt war **Secure Boot**:
 - Schutz vor Bootkits & Rootkits
 - Enge Verzahnung mit **TPM (Trusted Platform Module)**
 
-Ergebnis:
+**Ergebnis:**
+
 - Die **Bootkette** (Firmware → Bootloader → OS) wird erstmals abgesichert
 - Firmware wird Teil des Sicherheitskonzepts, nicht nur Starthelfer
 
@@ -76,13 +82,16 @@ Ergebnis:
 ### 2.4 Bedeutung für heutige Systeme
 
 Heute ist UEFI:
+
 - Voraussetzung für moderne Betriebssysteme
 - Basis für Sicherheitsfunktionen (z. B. Windows 11, moderne Linux-Distributionen)
-- Notwendig für:
-  - NVMe-SSDs
-  - Virtualisierung
-  - Remote-Management
-  - Firmware-Updates ohne OS
+
+**Notwendig für:**
+
+- NVMe-SSDs
+- Virtualisierung
+- Remote-Management
+- Firmware-Updates ohne OS
 
 👉 Der Begriff **„BIOS“** wird zwar noch verwendet, meint aber fast immer **UEFI-Firmware**.
 
@@ -90,9 +99,9 @@ Heute ist UEFI:
 
 ## 3. Kurzfazit
 
-- **BIOS**: historisch, einfach, limitiert  
-- **UEFI**: modern, modular, sicherheitskritisch  
-- Der Wechsel war **architektonisch zwingend**, nicht optional  
+- **BIOS**: historisch, einfach, limitiert
+- **UEFI**: modern, modular, sicherheitskritisch
+- Der Wechsel war **architektonisch zwingend**, nicht optional
 - UEFI ist heute ein **aktiver Bestandteil der System- und Sicherheitsarchitektur**
 
 ---
