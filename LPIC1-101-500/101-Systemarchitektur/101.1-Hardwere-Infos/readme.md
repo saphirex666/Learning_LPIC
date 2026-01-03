@@ -1,3 +1,5 @@
+### Quelle 
+# https://linux1st.com/1011-determine-and-configure-hardware-settings.html
 
 # LPIC-1 (101.1) – Hardware & Kernelmodule (Spickzettel)
 
