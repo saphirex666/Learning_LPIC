@@ -1,3 +1,5 @@
+https://www.buecher.de/artikel/ebook/lpic-2-ebook-epub/46744080/
+
 https://wiki.lpi.org/wiki/LPIC-2_Objectives_V4.5  
 https://www.lpi.org/our-certifications/exam-201-202-objectives/  
 
