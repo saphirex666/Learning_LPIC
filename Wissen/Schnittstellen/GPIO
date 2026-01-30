@@ -1,0 +1,222 @@
+# 01 – Grundlagen GPIO
+
+## 1. Definition
+
+**GPIO (General Purpose Input/Output)** bezeichnet universell einsetzbare digitale Ein- und Ausgangspins eines Mikrocontrollers, SoC oder Prozessors.  
+GPIO-Pins sind nicht auf ein festes Protokoll festgelegt, sondern können softwareseitig als **Eingang** oder **Ausgang** konfiguriert werden.
+
+GPIO dient als grundlegende Schnittstelle zur direkten Interaktion zwischen Recheneinheit und physischer Umwelt.
+
+### Abgrenzung zu spezialisierten Schnittstellen
+
+| Schnittstelle | Zweck | Protokoll |
+|---------------|------|-----------|
+| GPIO | Einfache digitale Signale | kein festes Protokoll |
+| UART | Serielle Punkt-zu-Punkt-Kommunikation | asynchron |
+| I²C | Mehrgeräte-Bus | synchron, adressiert |
+| SPI | Schneller Datenbus | synchron, Master/Slave |
+
+GPIO ist **flexibel**, aber **nicht standardisiert** hinsichtlich Timing, Datenrahmen oder Absicherung.
+
+---
+
+## 2. Kerneigenschaften
+
+### Digital I/O
+GPIO kennt ausschließlich **digitale Zustände**:
+- LOW (0)
+- HIGH (1)
+
+Keine native Analogfunktion (ADC/DAC sind separate Einheiten).
+
+### Input vs. Output
+
+| Modus | Funktion |
+|------|---------|
+| Input | Lesen externer Zustände |
+| Output | Setzen eines logischen Pegels |
+
+Ein Pin darf **immer nur in einem Modus gleichzeitig** betrieben werden.
+
+### Push-Pull / Open-Drain
+
+| Typ | Beschreibung |
+|----|-------------|
+| Push-Pull | Pin treibt aktiv HIGH und LOW |
+| Open-Drain | Pin zieht nur nach GND, HIGH über Widerstand |
+
+Open-Drain wird häufig für **Busse**, **Pegelwandlung** und **gemeinsame Leitungen** genutzt.
+
+### Pull-Up / Pull-Down
+
+Interne oder externe Widerstände definieren einen **stabilen Ruhezustand**, wenn kein Signal aktiv anliegt.
+
+---
+
+## 3. Typische Signale & Pins
+
+### GND
+- Elektrischer Referenzpunkt
+- Muss immer verbunden sein
+
+### GPIO-Pin
+- Digitaler Ein- oder Ausgang
+- Konfigurierbar per Software
+
+### Versorgungsspannung (VCC)
+- Versorgung externer Bauteile
+- Nicht jeder GPIO darf VCC liefern
+
+### Pegel (3.3 V / 5 V)
+
+| Plattform | Logikpegel |
+|---------|------------|
+| Raspberry Pi | 3.3 V |
+| ESP32 | 3.3 V |
+| Arduino Uno | 5 V |
+
+**Achtung:** 5 V an 3.3-V-GPIO zerstört den Pin.
+
+---
+
+## 4. Logikpegel & elektrische Eigenschaften
+
+### HIGH / LOW
+
+| Zustand | Bedeutung |
+|-------|-----------|
+| HIGH | logische 1 |
+| LOW | logische 0 |
+
+Die exakten Schwellen sind hardwareabhängig.
+
+### Strombelastbarkeit
+
+Typische Werte:
+- 2–16 mA pro Pin
+- Limit für gesamte GPIO-Bank beachten
+
+GPIO ist **kein Leistungsanschluss**.
+
+### Schutzmaßnahmen
+- Vorwiderstände (LEDs)
+- Transistoren / MOSFETs
+- Optokoppler
+- Schutzdioden
+
+GPIO-Pins sind **direkt mit dem Silizium verbunden** und empfindlich.
+
+---
+
+## 5. GPIO-Modi
+
+### Input
+- Pin liest externen Zustand
+- Hochohmig
+
+### Output
+- Pin treibt HIGH oder LOW
+- Stromfluss aktiv
+
+### Pull-Up / Pull-Down
+- Intern oder extern
+- Verhindert Floating-Zustände
+
+### Open-Drain
+- Nur LOW aktiv
+- HIGH über Pull-Up
+- Ideal für mehrere Teilnehmer
+
+---
+
+## 6. GPIO vs. alternative Schnittstellen
+
+### GPIO vs. UART
+- GPIO: Bitweise, ohne Timinggarantie
+- UART: Serielle Datenübertragung mit Baudrate
+
+### GPIO vs. I²C
+- GPIO: Punktuell, keine Adressierung
+- I²C: Bus mit Adressen und Takt
+
+### GPIO vs. SPI
+- GPIO: flexibel, langsam
+- SPI: hochperformant, hardwaregetrieben
+
+GPIO kann andere Schnittstellen **emulieren**, aber ineffizient.
+
+---
+
+## 7. Typische Einsatzgebiete
+
+### LEDs
+- Statusanzeigen
+- Debug-Ausgaben
+- Signalvisualisierung
+
+### Taster
+- Benutzereingaben
+- Interrupt-Trigger
+
+### Relais
+- Schalten von Lasten
+- Immer mit Treiberstufe
+
+### Sensor-Trigger
+- Bewegungsmelder
+- Endschalter
+- Digitale Alarmsignale
+
+---
+
+## 8. Häufige Fehlerquellen
+
+### Kurzschluss
+- GPIO direkt mit GND/VCC verbunden
+
+### Falsche Spannung
+- 5 V an 3.3-V-Pin
+
+### Fehlende Pull-Widerstände
+- Floating Input
+- Unzuverlässige Zustände
+
+### Überlastung
+- LEDs ohne Vorwiderstand
+- Relais ohne Treiber
+
+---
+
+## 9. Merksatz
+
+**GPIO ist ein direkter digitaler Draht zum Prozessor – leistungsarm, empfindlich und ohne Schutzmechanismen.**
+
+---
+
+## 03 – GPIO unter Linux (sysfs vs. libgpiod)
+
+### sysfs (veraltet)
+- Pfad: `/sys/class/gpio`
+- Textbasiert
+- Deprecated seit Kernel 4.8+
+
+### libgpiod (modern)
+- Character Devices (`/dev/gpiochipX`)
+- Ereignisgesteuert
+- Thread- und sicherheitsfähig
+
+**Empfehlung:** Ausschließlich libgpiod für neue Projekte.
+
+---
+
+## 04 – GPIO auf Raspberry Pi vs. ESP32
+
+| Merkmal | Raspberry Pi | ESP32 |
+|-------|--------------|-------|
+| Architektur | Linux-SoC | Mikrocontroller |
+| GPIO-Zugriff | Userland / Kernel | Echtzeit |
+| Latenz | Hoch | Sehr niedrig |
+| Interrupts | Begrenzt | Echtzeitfähig |
+| Anwendungsfall | Steuerung, Automatisierung | Embedded, Sensorik |
+
+Raspberry Pi ist **kein Echtzeitsystem** – ESP32 schon.
