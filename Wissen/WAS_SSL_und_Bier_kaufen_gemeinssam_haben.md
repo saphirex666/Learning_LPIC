@@ -1,3 +1,17 @@
+# Was SSL_und_Bier_kaufen_gemeinssam_haben
+
+Stell dir vor, du stehst an der Kasse mit einem Kasten Bier.
+Bevor du ihn bekommst, schaut der Verkäufer auf deinen Ausweis und prüft:
+**Bist du wirklich alt genug – und ist dein Ausweis echt?**
+
+Genau nach diesem Prinzip funktioniert auch SSL im Internet.
+Wenn du eine Website aufrufst, prüft dein Browser im Hintergrund, ob sie vertrauenswürdig ist – ähnlich wie ein Verkäufer, der deinen Ausweis kontrolliert.
+
+Diese einfache Alltagssituation hilft, ein eigentlich komplexes Thema verständlich zu machen:
+**Warum Vertrauen im Internet nicht einfach gegeben ist, sondern überprüft werden muss.**
+
+
+
 # 🔐 SSL / TLS – komplett erklärt (einfach + technisch)
 
 ***
